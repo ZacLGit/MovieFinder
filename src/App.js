@@ -28,13 +28,10 @@ function App() {
       let url = `http://www.omdbapi.com/?${movieSearch}&${movieFilter}&apikey=f9399c3a`;
       let response = await fetch(url);
       let responseJson = await response.json();
-
+      
       if(responseJson.Search) {
         setResults(responseJson.totalResults);
-        setMovies(responseJson.Search);
-        console.log(movieList.length);
-        movieList.filter(function(movie) {return parseInt(movie.Year) <= yearTo});
-        console.log(movieList.length);
+        setMovies(responseJson.Search.filter(function(movie) {return parseInt(movie.Year) >= yearFrom && parseInt(movie.Year) <= yearTo}));
       }
       /** This code may get me in trouble(server timeouts)
       let appendedList=[];
