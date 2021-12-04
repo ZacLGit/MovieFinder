@@ -1,0 +1,71 @@
+.gridContainer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #444444;
+  padding: 30px;
+  color:azure;
+}
+
+.filterContainer{
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: auto;
+}
+
+.radioFilter{
+  padding: 12px;
+}
+
+.rowSpread{
+  grid-row: 1 / span 2;
+}
+
+.imgExpan{
+  display: block;
+  margin-left: 6%;
+  margin-right: auto;
+  position: relative;
+  transition: 0.3s;
+}
+
+.imgOverlay{
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  width: 100%;
+  display: grid;
+  transition: .6s ease;
+  opacity: 1;
+  bottom: 0;
+  padding: 30;
+  font-size: 30;
+  text-align: center;
+}
+
+.imgExpan:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.imgExpan:hover .imgOverlay{
+  opacity: 1;
+}
+
+input[type="radio"] {
+  appearance: none;
+  background-color: #444444;
+  color: azure;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.15em solid azure;
+  border-radius: 100%;
+}
+
+input[type="radio"]:checked{
+  appearance: none;
+  background-color:azure;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.15em solid azure;
+}
