@@ -47,7 +47,7 @@ function App() {
     //Check if there is anything in the watch list and append
     if(movieWatchList) {
       //Check for and ignore duplicates
-      if(movieWatchList.forEach(m=>m.movieID!=movie.movieID)){
+      if(!isListed(movieWatchList, movie)){
         appendedList = [...movieWatchList, movie];
         setWatchList(appendedList);
         saveLocalWatchList('movie-finder-watchlist', appendedList);
@@ -59,6 +59,16 @@ function App() {
       setWatchList(appendedList);
       saveLocalWatchList('movie-finder-watchlist', appendedList);
     }
+  }
+
+  const isListed=(list,item)=>{
+    let listed = false;
+    list.map(element => {
+      if(element.Title==item.Title){
+        listed = true;
+      }
+    });
+    return listed;
   }
 
   //Set JSON data to local storage
