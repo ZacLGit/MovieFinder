@@ -78,7 +78,7 @@ function App() {
 
   //Render Watchlist data from local storage and display on page load
   useEffect(() => {setWatchList(JSON.parse(localStorage.getItem('movie-finder-watchlist')))},[]);
-  //Reder update for URL data and update display
+  //Render update for URL data and update display
   useEffect(() => {requestMovies()},[movieSearch, movieFilter, movieID, yearFrom, yearTo]);
   //Render current watchlist display
   useEffect(() => {},[displayWatchList])
