@@ -14,6 +14,7 @@ COMPLETED
 5. Save and load from local storage functionality
 6. Rough page layout
 7. Page nav buttons and functionality
+
 TODO
 1. Button styling
 2. Double range finder styling
