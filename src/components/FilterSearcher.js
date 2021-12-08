@@ -12,10 +12,10 @@ const FilterSearcher = (props) => {
                 <label>YEAR</label>
                 <div className="sliderWrapper">
                     <label for="double-slider1">{props.yearFrom}</label>
-                    <input type="range" onChange={(event)=> event.target.value<props.yearTo&&props.setYearFrom(event.target.value)}
-                    max="2025" min="1895" value={props.yearFrom<props.yearTo&&props.yearFrom} id="double-slider1"/>
-                    <input type="range" onChange={(event)=> props.yearFrom<event.target.value&&props.setYearTo(event.target.value)}
-                    max="2025" min="1895" value={props.yearFrom<props.yearTo&&props.yearTo} id="double-slider2"/>
+                    <input type="range" onChange={(event)=> event.target.value<props.yearTo?props.setYearFrom(event.target.value):props.setYearTo(event.target.value)}
+                    max="2025" min="1895" value={props.yearFrom} id="double-slider1"/>
+                    <input type="range" onChange={(event)=> props.yearFrom<event.target.value?props.setYearTo(event.target.value):props.setYearFrom(event.target.value)}
+                    max="2025" min="1895" value={props.yearTo} id="double-slider2"/>
                     <label for="double-slider2">{props.yearTo}</label>
                 </div>
             </div>

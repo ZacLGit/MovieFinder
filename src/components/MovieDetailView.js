@@ -8,13 +8,14 @@ const MovieDetailView = (props) => {
         <div className="detailContainer">
             <button id="btnDisplay" onClick={()=>props.setDisplaying(!props.isDisplaying)}>{props.isDisplaying ? "MOVIE SEARCH LIST" : "WATCHLIST"}</button>
             <div className="rowSpread4">
-                <img className="imgExpan" onClick={()=>props.isListedMovie(props.watchList, props.movieDetails) ?  props.removeFromList(props.movieDetails) : props.setWatchList(props.movieDetails)} 
+                <img className="imgExpan" onClick={()=>
+                props.isListedMovie(props.watchList, props.movieDetails) ?  props.removeFromList(props.movieDetails) : props.setWatchList(props.movieDetails)} 
                     src={props.movieDetails.Poster} alt="NO MOVIE IMAGE"></img>
                 <div className="imgOverlay"></div>
             </div>
             <h1>{props.movieDetails.Title}</h1>
             <div>
-                <h3>{props.movieDetails.Rated}  {props.movieDetails.Year} * {props.movieDetails.Genre} * {props.movieDetails.Runtime}</h3>
+                <h3>{props.movieDetails.Rated} {props.movieDetails.Year} * {props.movieDetails.Genre} * {props.movieDetails.Runtime}</h3>
             </div>
             <div>
                 <h3>{props.movieDetails.Actors}</h3>
@@ -24,7 +25,7 @@ const MovieDetailView = (props) => {
             <label>{props.movieDetails.Plot}</label>
         </div>
         <div className="reviewContainer">
-            {props.movieDetails.Ratings.map((rating, index)=> <h3 key={index}>{props.movieDetails.Ratings[index].Source} {props.movieDetails.Ratings[index].Value}</h3>)}
+            {props.movieDetails.Ratings.map((rating, index)=> <h3 key={index}>{props.movieDetails.Ratings[index].Source}   {props.movieDetails.Ratings[index].Value}</h3>)}
         </div>
     </div>);
     }
