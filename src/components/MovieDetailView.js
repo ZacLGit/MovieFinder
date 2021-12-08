@@ -9,7 +9,7 @@ const MovieDetailView = (props) => {
             <button id="btnDisplay" onClick={()=>props.setDisplaying(!props.isDisplaying)}>{props.isDisplaying ? "MOVIE SEARCH LIST" : "WATCHLIST"}</button>
             <div className="rowSpread4">
                 <img className="imgExpan" onClick={()=>
-                props.isListedMovie(props.watchList, props.movieDetails) ?  props.removeFromList(props.movieDetails) : props.setWatchList(props.movieDetails)} 
+                props.isListedMovie(props.watchList, props.movieDetails) ? props.removeFromList(props.movieDetails) : props.setWatchList(props.movieDetails)} 
                     src={props.movieDetails.Poster} alt="NO MOVIE IMAGE"></img>
                 <div className="imgOverlay"></div>
             </div>

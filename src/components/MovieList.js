@@ -9,10 +9,10 @@ const MovieList = (props) => {
         <button onClick={()=>props.setPage(props.pageNum-1)}>\--</button>
         <button onClick={()=>props.setPage(props.pageNum+1)}>--/</button>
         {props.movies.map((movie, index)=> 
-        <button key={index} onClick={()=>props.setMovieID(movie.imdbID)}>
+        <button className="btnMovieDetails" key={index} onClick={()=>props.setMovieID(movie.imdbID)}>
             <h1>{movie.Title}</h1>
             <p>{movie.Year}</p>
-            <img src={movie.Poster} alt="NO MOVIE IMAGE"></img>  
+            <img className="imgSelectionPoster" src={movie.Poster} alt="NO MOVIE IMAGE"></img>  
         </button>)}
     </div>);
     }
@@ -23,10 +23,10 @@ const MovieList = (props) => {
     <div className="listContainer">
         <h2>Watchlist</h2>
         {props.watchList.map((movie, index)=> 
-        <button key={index} onClick={()=>props.setMovieID(movie.imdbID)}>
+        <button className="btnMovieDetails" key={index} onClick={()=>props.setMovieID(movie.imdbID)}>
             <h1>{movie.Title}</h1>
             <p>{movie.Year}</p>
-            <img src={movie.Poster} alt="NO MOVIE IMAGE"></img>  
+            <img className="imgSelectionPoster" src={movie.Poster} alt="NO MOVIE IMAGE"></img>  
         </button>)}
     </div>);
   }
