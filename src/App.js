@@ -99,11 +99,13 @@ function App() {
   //Check list for given item
   const isListedMovie=(list,item)=>{
     let listed = false;
-    list.map(element => {
-      if(element.imdbID==item.imdbID){
-        listed = true;
-      }
-    });
+    if(list){
+      list.map(element => {
+        if(element.imdbID==item.imdbID){
+          listed = true;
+        }
+      });
+    }
     return listed;
   }
 
