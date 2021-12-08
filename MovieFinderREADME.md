@@ -1,3 +1,11 @@
+How to Launch:
+1. git clone https://github.com/ZacLGit/MovieFinder
+2. cd Moviefinder
+3. Delete the node_modules folder and any 'lock' files such as 
+yarn.lock or package-lock.json if present.
+4. npm install
+5. npm start
+
 COMPLETED
 1. Search and filter funcionality
 2. List display and interaction functionality
