@@ -50,7 +50,7 @@ body{
   display: grid;
   grid-template-columns: auto;
   overflow-y:scroll;
-  height: 60em;
+  height: 54em;
 }
 
 .radioFilter{

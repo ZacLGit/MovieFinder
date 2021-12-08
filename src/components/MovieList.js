@@ -2,12 +2,14 @@ import React from 'react';
 
 const MovieList = (props) => {
     if(props.movies){
-        return(
+    return(
     //HTML formatting, displaying total search results and building list of buttons with search movie data
     <div className="listContainer">
         <h2>{props.results} Search Results</h2>
+        <button onClick={()=>props.setPage(props.pageNum-1)}>\--</button>
+        <button onClick={()=>props.setPage(props.pageNum+1)}>--/</button>
         {props.movies.map((movie, index)=> 
-        <button key={index} onClick={()=>props.setMovieID("i="+movie.imdbID)}>
+        <button key={index} onClick={()=>props.setMovieID(movie.imdbID)}>
             <h1>{movie.Title}</h1>
             <p>{movie.Year}</p>
             <img src={movie.Poster} alt="NO MOVIE IMAGE"></img>  
@@ -16,12 +18,12 @@ const MovieList = (props) => {
     }
 
     if(props.watchList){
-      return(
+    return(
     //HTML formatting, building list of buttons with watchlist data
     <div className="listContainer">
         <h2>Watchlist</h2>
         {props.watchList.map((movie, index)=> 
-        <button key={index} onClick={()=>props.setMovieID("i="+movie.imdbID)}>
+        <button key={index} onClick={()=>props.setMovieID(movie.imdbID)}>
             <h1>{movie.Title}</h1>
             <p>{movie.Year}</p>
             <img src={movie.Poster} alt="NO MOVIE IMAGE"></img>  

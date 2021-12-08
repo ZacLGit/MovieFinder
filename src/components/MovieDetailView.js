@@ -3,12 +3,13 @@ import React from 'react';
 const MovieDetailView = (props) => {
     if(props.movieDetails){  
         return(
-    //HTML formatting, displaying movie details and watchlist append button call
+    //HTML formatting, displaying movie details, display watchlist button and watchlist append button call
     <div className="inspectContainer">
         <div className="detailContainer">
-            <button id="btnDisplay" onClick={(event)=> event && props.setDisplaying(!props.isDisplaying)}>{props.isDisplaying ? "MOVIE SEARCH LIST" : "WATCHLIST"}</button>
+            <button id="btnDisplay" onClick={()=>props.setDisplaying(!props.isDisplaying)}>{props.isDisplaying ? "MOVIE SEARCH LIST" : "WATCHLIST"}</button>
             <div className="rowSpread4">
-                <img className="imgExpan" onClick={()=>props.setWatchList(props.movieDetails)} src={props.movieDetails.Poster} alt="NO MOVIE IMAGE"></img>
+                <img className="imgExpan" onClick={()=>props.isListedMovie(props.watchList, props.movieDetails) ?  props.removeFromList(props.movieDetails) : props.setWatchList(props.movieDetails)} 
+                    src={props.movieDetails.Poster} alt="NO MOVIE IMAGE"></img>
                 <div className="imgOverlay"></div>
             </div>
             <h1>{props.movieDetails.Title}</h1>
