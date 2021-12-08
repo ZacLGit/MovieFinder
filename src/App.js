@@ -90,7 +90,9 @@ function App() {
   //Filter out movie selections from watchlist
   const removeFromWatchList = (movie) => {
     if(movieWatchList) {
-      setWatchList(movieWatchList.filter(m=>m.Title!==movie.Title));
+      let newList=movieWatchList.filter(m=>m.Title!==movie.Title);
+      setWatchList(newList);
+      saveLocalWatchList('movie-finder-watchlist', newList);
     }
   }
 
