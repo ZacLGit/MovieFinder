@@ -5,7 +5,7 @@ const FilterSearcher = (props) => {
         //HTML formatting, arrange search box and filter elements
         <div className="gridContainer">
             <div className="rowSpread2">
-                <input onChange={(event)=> props.setSearch("s="+event.target.value)}
+                <input onChange={(event)=> props.setQuery("s="+event.target.value)}
                 placeholder='Search For Media...' />
             </div>
             <div className="filterContainer">

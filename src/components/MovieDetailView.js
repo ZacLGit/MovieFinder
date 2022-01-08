@@ -24,7 +24,11 @@ const MovieDetailView = (props) => {
             <label>{props.movieDetails.Plot}</label>
         </div>
         <div className="reviewContainer">
-            {props.movieDetails.Ratings.map((rating, index)=> <h3 key={index}>{props.movieDetails.Ratings[index].Source}   {props.movieDetails.Ratings[index].Value}</h3>)}
+            {props.movieDetails.Ratings.map((rating, index)=> 
+            <div className="ratingLayout" key={index}>
+                <div>{props.movieDetails.Ratings[index].Value}</div>
+                <div>{props.movieDetails.Ratings[index].Source}</div>
+            </div>)}
         </div>
     </div>);
     }

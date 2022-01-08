@@ -8,8 +8,9 @@ function App() {
   const [movieWatchList, setWatchList] = useState([]);
   const [movieList, setMovies] = useState([]);
   const [movieSearchList, setSearchList] = useState([]);
-  const [movieSearch, setSearch] = useState('');
-  const [movieFilter, setFilter] = useState('');
+  const [movieSearch, setSearch] = useState("");
+  const [movieFilter, setFilter] = useState("");
+  const [query, setQuery] = useState("");
   const [movieID, setMovieID] = useState();
   const [movieDetails, setDetails] = useState();
   const [pageNum, setPage] = useState(1);
@@ -30,7 +31,7 @@ function App() {
         setResults(responseJson.totalResults);
         setMovies(responseJson.Search);
         setSearchList(responseJson.Search);
-        //filterDisplayList(); //spooky results may return to later
+        filterDisplayList(responseJson.Search);
       }
     }
   }
@@ -90,7 +91,7 @@ function App() {
   //Filter out movie selections from watchlist
   const removeFromWatchList = (movie) => {
     if(movieWatchList) {
-      let newList=movieWatchList.filter(m=>m.Title!==movie.Title);
+      let newList=movieWatchList.filter(m=>m.imdbID!==movie.imdbID);
       setWatchList(newList);
       saveLocalWatchList('movie-finder-watchlist', newList);
     }
@@ -116,6 +117,9 @@ function App() {
 
   //Render Watchlist data from local storage and display on page load
   useEffect(() => {setWatchList(JSON.parse(localStorage.getItem('movie-finder-watchlist')))},[]);
+  //Debounce search box query
+  useEffect(() => {let timeOutId = setTimeout(() => setSearch(query), 600);
+    return () => clearTimeout(timeOutId);},[query]);
   //Render movie search, genre filter or page change
   useEffect(() => {requestMovies()},[movieSearch, movieFilter, pageNum]);
   //Render year span filtering
@@ -128,7 +132,7 @@ function App() {
     return (
       //Display elements
       <>
-        <FilterSearcher yearFrom={yearFrom} yearTo={yearTo} setSearch={setSearch} setFilter={setFilter} setYearFrom={setYearFrom} setYearTo={setYearTo}/>
+        <FilterSearcher yearFrom={yearFrom} yearTo={yearTo} setQuery={setQuery} setFilter={setFilter} setYearFrom={setYearFrom} setYearTo={setYearTo}/>
         <div className="displayContainer">
         <MovieList watchList={movieWatchList} setMovieID={setMovieID}/>
         <MovieDetailView movieDetails={movieDetails} watchList={movieWatchList} isDisplaying={displayWatchList} isListedMovie={isListedMovie} setDisplaying={isDisplaying} removeFromList={removeFromWatchList} setWatchList={addToWatchList}/>
@@ -139,7 +143,7 @@ function App() {
       return (
         //Display elements
         <>
-          <FilterSearcher yearFrom={yearFrom} yearTo={yearTo} setSearch={setSearch} setFilter={setFilter} setYearFrom={setYearFrom} setYearTo={setYearTo}/>
+          <FilterSearcher yearFrom={yearFrom} yearTo={yearTo} setQuery={setQuery} setFilter={setFilter} setYearFrom={setYearFrom} setYearTo={setYearTo}/>
           <div className="displayContainer">
           <MovieList movies={movieList} results={totalResults} pageNum={pageNum} setPage={setCurrentPage} setMovieID={setMovieID}/>
           <MovieDetailView movieDetails={movieDetails} watchList={movieWatchList} isDisplaying={displayWatchList} isListedMovie={isListedMovie} setDisplaying={isDisplaying} removeFromList={removeFromWatchList} setWatchList={addToWatchList}/>
