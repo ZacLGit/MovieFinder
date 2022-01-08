@@ -19,3 +19,5 @@ TODO
 1. Button styling
 2. Double range finder styling
 3. Detail layout styling
+4. Accessability refactor
+5. Delayed search box input(Debounced function)
