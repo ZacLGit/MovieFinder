@@ -76,18 +76,24 @@ body{
 }
 
 .btnDisplay{
-  position:absolute;
+  position:fixed;
   right:30%;
 }
 
 .btnMovieDetails{
+  display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
+  padding: 24px;
 }
 
 .imgSelectionPoster{
-  clip:rect(50px,50px,50px,50px);
+  width: 120px;
+  height: 120px;
+  border-radius: 9px;
   overflow: hidden;
+  object-fit: cover;
+  grid-row: 1 / span 3;
 }
 
 .imgExpan{
